@@ -31,3 +31,12 @@ for r in range(0, sheet.nrows):
 		print str(e)
 	filepath = os.path.join(csv_path_name+"/", "csv_file")
 	return HttpResponse("File has been uploaded successfully")
+
+def upload_csv(request):
+ 	if request.POST and request.FILES:
+ 		csvfile = request.FILES['csv_file']
+ 		fout = open("/home/brahma/Desktop/Folder/%s" % csvfile.name, 'wb')
+ 		for chunk in csvfile.chunks():
+ 			fout.write(chunk)
+ 		fout.close()
+ 	return HttpResponse("file has been uploaded successfully")
