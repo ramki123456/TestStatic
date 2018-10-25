@@ -1,3 +1,11 @@
+sort a list without using max, min and sort, sorted functions
+nums = [6,3,2,1,4,8]
+for i in range(len(nums)):
+    for j in range(len(nums) - 1):
+        if nums[j] > nums[j+1]:
+            nums[j+1], nums[j] = nums[j], nums[j+1]
+    print nums
+
 # write a program to display sum of cities temperatures and avg
 city_temp = '''Bangalore 21stoct 26.09
 chennai 21stoct 41.90
